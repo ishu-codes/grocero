@@ -1,5 +1,7 @@
 "use strict";
 
+let cart;
+
 function setToggleMenu() {
     const menuIcon = document.querySelector("#menu-icon");
     const imgIcon = document.querySelector("#menu-icon img");
@@ -18,6 +20,15 @@ function setToggleMenu() {
     });
 }
 
+function getCart() {
+    cart = localStorage.getItem("cart");
+    console.log(cart);
+}
+function addToCart(id) {
+    console.log(`Product ${1} added to cart!`);
+}
+
 // window.document.onload(() => {
 setToggleMenu();
+getCart();
 // });
