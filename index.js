@@ -4,6 +4,7 @@ function generateProducts() {
     const productSection = document.querySelector("#products-section");
 
     for (let product of PRODUCTS) {
+        if (product.id === 1) continue;
         let childElem = Object.assign(document.createElement("div"), {
             // id: 'id',
             className: "product",
@@ -14,7 +15,7 @@ function generateProducts() {
                 <h2>${product.name}</h2>
                 <p>&#8377; ${product.rate}</p>
                 <div class="quantity quantity-1">
-                    <button>Add to cart</button>
+                    <button onclick="addToCart(${product.id})">Add to cart</button>
                 </div>
             `,
         });
