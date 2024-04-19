@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="./global-styles.css" />
         <link rel="stylesheet" href="./style.css" />
         <script src="./global-script.js" defer></script>
+        <script src="./products.js" defer></script>
         <script src="./index.js" defer></script>
     </head>
     <body>
@@ -48,7 +49,59 @@
 
         <!----- Container ----->
         <div class="container">
-            <p>Home Container!</p>
+            <!-- Category -->
+            <div class="category-section">
+                <h2>Categories</h2>
+                <ul>
+                    <li>
+                        <button class="category active" data-value="all">
+                            All
+                        </button>
+                    </li>
+                    <li>
+                        <button class="category" data-value="fruits">
+                            Fruits
+                        </button>
+                    </li>
+                    <li>
+                        <button class="category" data-value="vegetables">
+                            Vegetables
+                        </button>
+                    </li>
+                    <li>
+                        <button class="category" data-value="others">
+                            Others
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Products -->
+            <div class="products-section">
+                <div class="product">
+                    <div class="product-img">
+                        <img src="./assets/products/Apple.png" alt="apple" />
+                    </div>
+                    <h2>Apple</h2>
+                    <p>₹ 20</p>
+                    <div class="quantity">
+                        <button>&minus;</button>
+                        <p>1</p>
+                        <button>&plus;</button>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <div class="product-img">
+                        <img src="./assets/products/Banana.png" alt="banana" />
+                    </div>
+                    <h2>Banana</h2>
+                    <p>₹ 60</p>
+                    <div class="quantity quantity-1">
+                        <button>Add to cart</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

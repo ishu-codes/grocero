@@ -1,0 +1,98 @@
+.container {
+    display: flex;
+}
+
+.category-section {
+    width: 20rem;
+    padding-top: 2rem;
+    /* position: fixed;
+    top: 10rem;
+    left: 2rem;*/
+}
+.category-section ul {
+    list-style: none;
+    margin-top: 1rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 1px 4px 0px #00000017;
+}
+.category-section ul li {
+    margin-top: 0.25rem;
+}
+.category-section ul li button {
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    outline: 1px solid transparent;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+.category-section ul li button.active {
+    background: var(--green-grad);
+    color: #fff;
+}
+.products-section {
+    width: 100%;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+    padding: 2rem;
+}
+.products-section .product {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin-bottom: auto;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0px 1px 4px 0px #00000017;
+}
+.products-section .product .product-img {
+    height: 8rem;
+    display: flex;
+    margin-bottom: 1rem;
+}
+.products-section .product .product-img img {
+    margin: 0 auto;
+}
+.products-section .product h2 {
+    font-weight: 500;
+}
+.products-section .product .quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.products-section .product button {
+    padding: 0.5rem 1rem;
+    background: var(--green-grad);
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 12px;
+    outline: 1px solid transparent !important;
+    cursor: pointer;
+}
+.products-section .product p,
+.products-section .product .quantity {
+    margin-top: 0.5rem;
+}
+.products-section .product .quantity {
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+.products-section .product .quantity-1 button {
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    .products-section {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
