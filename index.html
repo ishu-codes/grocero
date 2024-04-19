@@ -4,9 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon" href="./assets/favicon.png" />
-        <title>Home</title>
+        <title>Grocero</title>
         <link rel="stylesheet" href="./global-styles.css" />
         <link rel="stylesheet" href="./style.css" />
+        <script src="./global-script.js" defer></script>
         <script src="./index.js" defer></script>
     </head>
     <body>
@@ -21,13 +22,29 @@
                     <li><a href="./" class="active">Home</a></li>
                     <li><a href="./account">Account</a></li>
                     <li><a href="./about">About</a></li>
+                    <li>
+                        <a href="./cart" id="cart-icon">
+                            <img
+                                src="../assets/icons/cart.png"
+                                alt="shopping-cart"
+                            />
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
-            <div class="icon menu-icon">
+            <div id="menu-icon" class="icon menu-icon">
                 <img src="./assets/icons/menu.svg" alt="menu" />
             </div>
         </div>
+        <nav class="nav-section" id="nav-section">
+            <ul>
+                <li><a href="./" class="active">Home</a></li>
+                <li><a href="./account">Account</a></li>
+                <li><a href="./cart">Shopping Cart</a></li>
+                <li><a href="./about">About</a></li>
+            </ul>
+        </nav>
 
         <!----- Container ----->
         <div class="container">
