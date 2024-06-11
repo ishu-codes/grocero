@@ -20,33 +20,64 @@ function setToggleMenu() {
     });
 }
 
-function getCart() {
-    cart = localStorage.getItem("cart");
-    if (!cart) cart = [];
-    localStorage.setItem("cart", cart);
-    console.log(cart);
-    // console.log(cart);
-}
-function addToCart(prodId) {
-    // console.log(`Product ${1} added to cart!`);
-
-    if (!PRODUCTS.find((prod) => prod.id === prodId)) return;
-
-    let product = cart.find((prod) => prod.id === prodId);
-
-    if (!product) {
-        console.log("Product is: ", product);
-        product = PRODUCTS.find((prod) => prod.id === prodId);
+function getCartState() {
+    cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+        cart = [];
+        setCartState();
     }
-    console.log({ cart, product });
-    let initQuantity = 1;
-    if (product) initQuantity = product.quantity + 1;
-    cart.push({ ...product, quantity: initQuantity });
-
-    localStorage.setItem("cart", cart);
 }
 
-// window.document.onload(() => {
-setToggleMenu();
-getCart();
-// });
+function setCartState() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function updateProductCard(productId) {
+    const productsSection = document.querySelector("#products-section");
+    for (let product of productsSection.children) {
+        if (product.id == productId) {
+            product.children[3].remove();
+            product.appendChild(generateCartBtns(productId));
+            return;
+        }
+    }
+}
+
+function addToCart(productId) {
+    if (!PRODUCTS.find((prod) => prod.id === productId)) return;
+
+    let product = cart.find((prod) => prod.id === productId);
+    if (product) {
+        cart = cart.map((prod) =>
+            prod.id === productId
+                ? { ...prod, quantity: prod.quantity + 1 }
+                : prod
+        );
+    } else {
+        product = PRODUCTS.find((prod) => prod.id === productId);
+        cart.push({ ...product, quantity: 1 });
+    }
+    setCartState();
+    updateProductCard(product.id);
+}
+
+function removeFromCart(productId) {
+    if (!PRODUCTS.find((prod) => prod.id === productId)) return;
+
+    let product = cart.find((prod) => prod.id === productId);
+    if (product) {
+        cart = cart.map((prod) =>
+            prod.id === productId
+                ? { ...prod, quantity: prod.quantity - 1 }
+                : prod
+        );
+    }
+    setCartState();
+    updateProductCard(product.id);
+}
+
+function main() {
+    setToggleMenu();
+    getCartState();
+}
+main();
